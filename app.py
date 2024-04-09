@@ -7,13 +7,21 @@ import pytz
 app = Flask(__name__)
 
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
-calibrating = False
+
+global calibragem
 global hora_global
-global data_atual
+global tipo_calibragem
+global horarios
+global calibrating
 
 sao_paulo_tz = pytz.timezone('America/Sao_Paulo')
 data_atual = datetime.now(sao_paulo_tz).strftime("%Y-%m-%d")
 hora_global = datetime.now(sao_paulo_tz).strftime("%H:%M")
+calibrating = False
+
+calibragem = 0
+tipo_calibragem = 'automatica'
+horarios = []
 
 
 @app.route('/', methods=['GET'])
