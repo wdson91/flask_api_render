@@ -1,3 +1,2 @@
 Flask
-Flask-Async
 Flask-Cors
